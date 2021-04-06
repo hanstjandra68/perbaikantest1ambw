@@ -13,6 +13,7 @@ export interface fileFoto{
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  imagestorage: fileFoto[] = [];
   urlimagtestorage : string[] = [];
   nameimagtestorage : string[];
   constructor(
@@ -33,8 +34,12 @@ export class Tab3Page {
     .then((res)=>{
       res.items.forEach((itemRef)=>{
         console.log(itemRef.name);
-        this.nameimagtestorage.unshift(itemRef.name);
         itemRef.getDownloadURL().then(url =>{
+          this.imagestorage.unshift({
+            name: itemRef.name,
+            path: url
+          })
+          this.nameimagtestorage.unshift(itemRef.name);
           this.urlimagtestorage.unshift(url)
         })
       });

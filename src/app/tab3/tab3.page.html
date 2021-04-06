@@ -8,15 +8,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-title>List: </ion-title>
-  <div *ngFor="let nama of nameimagtestorage;index as position">
-    <ion-label>{{nama}}</ion-label>
-  </div>
-  <ion-title>List Gambar: </ion-title>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2" *ngFor="let foto of urlimagtestorage;index as position">
-        <ion-img [src]="foto" [routerLink]="['/tab4',foto]"></ion-img>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-list *ngFor="let foto of imagestorage;index as position">
+    <ion-item>
+      <ion-img [src]="foto.path" [routerLink]="['/tab4',foto.path]"></ion-img>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{foto.name}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
