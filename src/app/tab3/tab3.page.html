@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Firebase Storage
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title>List: </ion-title>
+  <div *ngFor="let nama of nameimagtestorage;index as position">
+    <ion-label>{{nama}}</ion-label>
+  </div>
+  <ion-title>List Gambar: </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" *ngFor="let foto of urlimagtestorage;index as position">
+        <ion-img [src]="foto" [routerLink]="['/tab4',foto]"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
